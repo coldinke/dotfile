@@ -1,0 +1,87 @@
+vim9script
+
+# Basic Vim Configuration
+
+## Basic
+set nocompatible
+syntax on
+set showmode
+set showcmd
+set encoding=utf-8
+set t_Co=256
+filetype indent on
+
+## Indent
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+
+## active line
+set number
+set cursorline
+set textwidth=80
+set wrap
+set linebreak
+set wrapmargin=2
+set sidescrolloff=15
+set laststatus=2
+set ruler
+
+## search
+set showmatch
+set hlsearch
+
+set spell spelllang=en_us               
+#set nobackup                            
+#set noswapfile                          
+#set undofile                            
+
+set noerrorbells                        
+#set visualbell                          
+#set history=1000                       
+set autoread                            
+
+set wildmenu
+set wildmode=longest:list,full          
+
+# Plugin Manager
+call plug#begin()
+
+# List your plugins here
+Plug 'tpope/vim-sensible'
+
+# Rust 
+Plug 'rust-lang/rust.vim'
+
+# Go
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'dgryski/vim-godef'
+
+# Auto pairs
+Plug 'jiangmiao/auto-pairs'
+
+# Language Server Plugin
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+
+# Theme
+Plug 'vim-airline/vim-airline'   		
+Plug 'vim-airline/vim-airline-themes'	
+Plug 'morhetz/gruvbox'
+
+call plug#end()
+
+
+# COC Configuration
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+set completeopt=menuone,noinsert,noselect
+
+## Theme
+colorscheme gruvbox
+set background=dark
+
+
